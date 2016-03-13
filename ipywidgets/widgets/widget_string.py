@@ -63,6 +63,7 @@ class Text(_String):
     """Single line textbox widget."""
     _view_name = Unicode('TextView').tag(sync=True)
     _model_name = Unicode('TextModel').tag(sync=True)
+    tooltip = Unicode(help="Tooltip caption of the text widget.").tag(sync=True)
 
     def __init__(self, *args, **kwargs):
         super(Text, self).__init__(*args, **kwargs)

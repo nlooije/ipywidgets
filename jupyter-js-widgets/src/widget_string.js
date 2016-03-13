@@ -188,6 +188,7 @@ var TextView = widget.DOMWidgetView.extend({
             .addClass('jupyter-widgets widget-hbox widget-text');
         this.$label = $('<div />')
             .addClass('widget-label')
+            .attr("data-toggle", "tooltip")
             .appendTo(this.$el)
             .hide();
         this.$textbox = $('<input type="text" />')
@@ -223,6 +224,7 @@ var TextView = widget.DOMWidgetView.extend({
 
             var disabled = this.model.get('disabled');
             this.$textbox.prop('disabled', disabled);
+            this.$label.attr("title", this.model.get("tooltip"));
 
             var description = this.model.get('description');
             if (description.length === 0) {
