@@ -32,6 +32,7 @@ var DropdownView = widget.DOMWidgetView.extend({
         this.$label = $('<div />')
             .appendTo(this.$el)
             .addClass('widget-label')
+            .attr("data-toggle", "tooltip")
             .hide();
         this.$buttongroup = $('<div />')
             .addClass('widget_item')
@@ -103,6 +104,8 @@ var DropdownView = widget.DOMWidgetView.extend({
          */
 
         if (options === undefined || options.updated_view != this) {
+            this.$label.attr("title", this.model.get("tooltip"));
+
             var selected_item_text = this.model.get('value');
             if (selected_item_text.trim().length === 0) {
                 this.$droplabel.html("&nbsp;");
@@ -213,6 +216,7 @@ var RadioButtonsView = widget.DOMWidgetView.extend({
         this.$label = $('<div />')
             .appendTo(this.$el)
             .addClass('widget-label')
+            .attr("data-toggle", "tooltip")
             .hide();
         this.$container = $('<div />')
             .appendTo(this.$el)
@@ -228,6 +232,8 @@ var RadioButtonsView = widget.DOMWidgetView.extend({
          * changed by another view or by a state update from the back-end.
          */
         if (options === undefined || options.updated_view != this) {
+            this.$label.attr("title", this.model.get("tooltip"));
+
             // Add missing items to the DOM.
             var items = this.model.get('_options_labels');
             var disabled = this.model.get('disabled');
@@ -487,6 +493,7 @@ var SelectView = widget.DOMWidgetView.extend({
         this.$label = $('<div />')
             .appendTo(this.$el)
             .addClass('widget-label')
+            .attr("data-toggle", "tooltip")
             .hide();
         this.$listbox = $('<select />')
             .addClass('widget-listbox form-control')
@@ -504,6 +511,8 @@ var SelectView = widget.DOMWidgetView.extend({
          * changed by another view or by a state update from the back-end.
          */
         if (options === undefined || options.updated_view != this) {
+            this.$label.attr("title", this.model.get("tooltip"));
+
             // Add missing items to the DOM.
             var items = this.model.get('_options_labels');
             var that = this;
@@ -602,6 +611,7 @@ var SelectionSliderView = widget.DOMWidgetView.extend({
         this.$label = $('<div />')
             .appendTo(this.$el)
             .addClass('widget-label')
+            .attr("data-toggle", "tooltip")
             .hide();
 
         this.$slider = $('<div />')
@@ -670,6 +680,7 @@ var SelectionSliderView = widget.DOMWidgetView.extend({
          * changed by another view or by a state update from the back-end.
          */
         if (options === undefined || options.updated_view != this) {
+            this.$label.attr("title", this.model.get("tooltip"));
             var labels = this.model.get("_options_labels");
             var max = labels.length - 1;
             var min = 0;

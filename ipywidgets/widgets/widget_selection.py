@@ -176,6 +176,7 @@ class Dropdown(_Selection):
     """Allows you to select a single item from a dropdown."""
     _view_name = Unicode('DropdownView').tag(sync=True)
     _model_name = Unicode('DropdownModel').tag(sync=True)
+    tooltip = Unicode(help="Tooltip caption of the dropdown selection widget.").tag(sync=True)
 
     button_style = CaselessStrEnum(
         values=['primary', 'success', 'info', 'warning', 'danger', ''],
@@ -191,20 +192,21 @@ class RadioButtons(_Selection):
     """
     _view_name = Unicode('RadioButtonsView').tag(sync=True)
     _model_name = Unicode('RadioButtonsModel').tag(sync=True)
-
+    tooltip = Unicode(help="Tooltip caption of the radio buttons widget.").tag(sync=True)
 
 @register('Jupyter.Select')
 class Select(_Selection):
     """Listbox that only allows one item to be selected at any given time."""
     _view_name = Unicode('SelectView').tag(sync=True)
     _model_name = Unicode('SelectModel').tag(sync=True)
-
+    tooltip = Unicode(help="Tooltip caption of the selection widget.").tag(sync=True)
 
 @register('Jupyter.SelectionSlider')
 class SelectionSlider(_Selection):
     """Slider to select a single item from a list or dictionary."""
     _view_name = Unicode('SelectionSliderView').tag(sync=True)
     _model_name = Unicode('SelectionSliderModel').tag(sync=True)
+    tooltip = Unicode(help="Tooltip caption of the selection slider widget.").tag(sync=True)
 
     orientation = CaselessStrEnum(
         values=['horizontal', 'vertical'],
@@ -224,3 +226,4 @@ class SelectMultiple(_MultipleSelection):
     """
     _view_name = Unicode('SelectMultipleView').tag(sync=True)
     _model_name = Unicode('SelectMultipleModel').tag(sync=True)
+    tooltip = Unicode(help="Tooltip caption of the multiple selection widget.").tag(sync=True)
