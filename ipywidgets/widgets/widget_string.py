@@ -53,6 +53,7 @@ class Textarea(_String):
     """Multiline text area widget."""
     _view_name = Unicode('TextareaView').tag(sync=True)
     _model_name = Unicode('TextareaModel').tag(sync=True)
+    tooltip = Unicode(help="Tooltip caption of the text area widget.").tag(sync=True)
 
     def scroll_to_bottom(self):
         self.send({"method": "scroll_to_bottom"})

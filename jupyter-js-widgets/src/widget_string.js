@@ -91,6 +91,7 @@ var TextareaView = widget.DOMWidgetView.extend({
         this.$label = $('<div />')
             .appendTo(this.$el)
             .addClass('widget-label')
+            .attr("data-toggle", "tooltip")
             .hide();
         this.$textbox = $('<textarea />')
             .attr('rows', 5)
@@ -141,6 +142,7 @@ var TextareaView = widget.DOMWidgetView.extend({
 
             var disabled = this.model.get('disabled');
             this.$textbox.prop('disabled', disabled);
+            this.$label.attr("title", this.model.get("tooltip"));
 
             var description = this.model.get('description');
             if (description.length === 0) {
