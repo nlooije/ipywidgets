@@ -188,8 +188,8 @@ var TextView = widget.DOMWidgetView.extend({
             .addClass('jupyter-widgets widget-hbox widget-text');
         this.$label = $('<div />')
             .addClass('widget-label')
-            .attr("data-toggle", "tooltip")
             .appendTo(this.$el)
+            .attr("data-toggle", "tooltip")
             .hide();
         this.$textbox = $('<input type="text" />')
             .addClass('input')
