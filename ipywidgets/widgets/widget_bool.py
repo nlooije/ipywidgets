@@ -37,9 +37,13 @@ class Checkbox(_Bool):
        value of the checkbox: True-checked, False-unchecked
     description : str
 	     description displayed next to the checkbox
+     tooltip: str
+        tooltip caption of the toggle button
     """
     _view_name = Unicode('CheckboxView').tag(sync=True)
     _model_name = Unicode('CheckboxModel').tag(sync=True)
+
+    tooltip = Unicode(help="Tooltip caption of the checkbox.").tag(sync=True)
 
 
 @register('Jupyter.ToggleButton')

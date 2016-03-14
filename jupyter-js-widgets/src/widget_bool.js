@@ -36,6 +36,7 @@ var CheckboxView = widget.DOMWidgetView.extend({
         this.$label = $('<div />')
             .addClass('widget-label')
             .appendTo(this.$el)
+            .attr("data-toggle", "tooltip")
             .hide();
 
         this.update(); // Set defaults.
@@ -75,6 +76,7 @@ var CheckboxView = widget.DOMWidgetView.extend({
 
         if (options === undefined || options.updated_view != this) {
             this.$checkbox.prop("disabled", this.model.get("disabled"));
+            this.$label.attr("title", this.model.get("tooltip"));
 
             var description = this.model.get("description");
             if (description.trim().length === 0) {
