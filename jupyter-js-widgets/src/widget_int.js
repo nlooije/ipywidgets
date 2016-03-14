@@ -46,6 +46,7 @@ var IntSliderView = widget.DOMWidgetView.extend({
         this.$label = $('<div />')
             .appendTo(this.$el)
             .addClass('widget-label')
+            .attr("data-toggle", "tooltip")
             .hide();
 
         this.$slider = $('<div />')
@@ -116,6 +117,8 @@ var IntSliderView = widget.DOMWidgetView.extend({
          * changed by another view or by a state update from the back-end.
          */
         if (options === undefined || options.updated_view != this) {
+            this.$label.attr("title", this.model.get("tooltip"));
+
             // JQuery slider option keys.  These keys happen to have a
             // one-to-one mapping with the corrosponding keys of the model.
             var jquery_slider_keys = ['step', 'disabled'];
@@ -380,6 +383,7 @@ var IntTextView = widget.DOMWidgetView.extend({
         this.$label = $('<div />')
             .appendTo(this.$el)
             .addClass('widget-label')
+            .attr("data-toggle", "tooltip")
             .hide();
         this.$textbox = $('<input type="text" />')
             .addClass('form-control')
@@ -412,6 +416,8 @@ var IntTextView = widget.DOMWidgetView.extend({
          * changed by another view or by a state update from the back-end.
          */
         if (options === undefined || options.updated_view != this) {
+            this.$label.attr("title", this.model.get("tooltip"));
+
             var value = this.model.get('value');
             if (this._parse_value(this.$textbox.val()) != value) {
                 this.$textbox.val(value);
@@ -515,6 +521,7 @@ var ProgressView = widget.DOMWidgetView.extend({
         this.$label = $('<div />')
             .appendTo(this.$el)
             .addClass('widget-label')
+            .attr("data-toggle", "tooltip")
             .hide();
 
         this.$progress = $('<div />')
@@ -558,6 +565,8 @@ var ProgressView = widget.DOMWidgetView.extend({
          * Called when the model is changed.  The model may have been
          * changed by another view or by a state update from the back-end.
          */
+        this.$label.attr("title", this.model.get("tooltip"));
+
         var value = this.model.get('value');
         var max = this.model.get('max');
         var min = this.model.get('min');
